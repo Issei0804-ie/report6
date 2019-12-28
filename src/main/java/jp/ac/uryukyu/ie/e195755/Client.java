@@ -17,6 +17,8 @@ class Client {
         }
     }
 
+
+
      public int sendMessage(byte[] a){
         while (true) {
             try {
@@ -27,6 +29,7 @@ class Client {
                 }
             } catch (java.io.IOException e) {
                 e.printStackTrace();
+                return -1;
             }
         }
     }
