@@ -3,7 +3,6 @@ package jp.ac.uryukyu.ie.e195755;
 
 import java.net.ServerSocket;
 
-
 /**
  * ソケット通信におけるサーバーの役割を提供します。
  * @author 宮良一生
@@ -40,5 +39,4 @@ public class Server extends Communication{
             return false;
         }
     }
-
 }

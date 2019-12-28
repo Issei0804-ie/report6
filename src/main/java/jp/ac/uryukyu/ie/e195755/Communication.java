@@ -30,12 +30,12 @@ public class Communication {
         return ToString(chars);
     }
 
-    public boolean sendMessage(byte[] a){
+    public boolean sendMessage(String str){
         while (true) {
             try {
                 if (socket.isConnected()) {
                     OutputStream output = socket.getOutputStream();
-                    output.write(a);
+                    output.write(str.getBytes());
                     output.close();
                     return true;
                 }
