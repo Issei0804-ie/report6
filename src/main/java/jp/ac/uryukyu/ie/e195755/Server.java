@@ -1,21 +1,16 @@
 package jp.ac.uryukyu.ie.e195755;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.InetSocketAddress;
+
 import java.net.ServerSocket;
-import java.net.Socket;
-import java.util.ArrayList;
+
 
 /**
  * ソケット通信におけるサーバーの役割を提供します。
  * @author 宮良一生
  *
  */
-public class Server {
+public class Server extends Communication{
     ServerSocket ssocket = null;
-    Socket socket = null;
-
     /**
      * 指定されたポートにバインドする。
      * @param port
@@ -46,24 +41,4 @@ public class Server {
         }
     }
 
-    /**
-     *クライアントから送信されたデータをString型にして戻り値にします。
-     * @return クライアントから送られてきたデータ。
-     */
-    public String read(){
-        ArrayList<Character> chars = new ArrayList<Character>();
-        try{
-            InputStream input =  socket.getInputStream();
-            int test;
-            while(true){
-                test = input.read();
-                if (test==-1) break;
-                char ch = (char) test;
-                chars.add(ch);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return chars.toString();
-    }
 }
