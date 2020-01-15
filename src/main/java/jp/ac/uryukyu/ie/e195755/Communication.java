@@ -18,7 +18,11 @@ public class Communication {
      */
     public String read(){
         try {
-            return reader.readLine();
+            String result = reader.readLine();
+            while(reader.ready()){
+                result += "\n"+reader.readLine();
+            }
+            return result;
         }
         catch (IOException e){
             e.printStackTrace();
