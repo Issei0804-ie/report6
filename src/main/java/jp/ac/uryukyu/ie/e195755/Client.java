@@ -1,5 +1,9 @@
 package jp.ac.uryukyu.ie.e195755;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.net.Socket;
 
 class Client extends Communication {
@@ -7,6 +11,8 @@ class Client extends Communication {
         try {
             System.out.println("wait server");
             socket = new Socket("127.0.0.1", port);
+            writer = new PrintStream(socket.getOutputStream());
+            reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             System.out.println("connect");
         }catch (java.io.IOException e){
             e.printStackTrace();

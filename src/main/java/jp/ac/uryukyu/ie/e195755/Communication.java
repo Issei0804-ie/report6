@@ -1,48 +1,48 @@
 package jp.ac.uryukyu.ie.e195755;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.Socket;
+import java.nio.Buffer;
 import java.util.ArrayList;
 
 public class Communication {
     public Socket socket = null;
+    public PrintStream writer = null;
+    public BufferedReader reader = null;
+
+
+
     /**
      *クライアントから送信されたデータをString型にして戻り値にします。
      * @return クライアントから送られてきたデータ。
      */
     public String read(){
-        ArrayList<Character> chars = new ArrayList<Character>();
-        try{
-            InputStream input =  socket.getInputStream();
-            int test;
-            while(true){
-                test = input.read();
-                if (test==-1) break;
-                char ch = (char) test;
-                chars.add(ch);
-            }
-            input.close();
-        } catch (IOException e) {
+        try {
+            return reader.readLine();
+        }
+        catch (IOException e){
             e.printStackTrace();
         }
-        return ToString(chars);
+        return "";
     }
 
-    public boolean sendMessage(String str){
-        while (true) {
-            try {
-                if (socket.isConnected()) {
-                    OutputStream output = socket.getOutputStream();
-                    output.write(str.getBytes());
-                    output.close();
-                    return true;
-                }
-            } catch (java.io.IOException e) {
-                e.printStackTrace();
+    public void sendMessage(String str){
+        writer.println(str);
+    }
+
+    public boolean close(){
+        try {
+            if (socket.isConnected()) {
+                writer.close();
+                reader.close();
+                socket.close();
+                return true;
+            } else {
                 return false;
             }
+        } catch(IOException e){
+            e.printStackTrace();
+            return false;
         }
     }
 
