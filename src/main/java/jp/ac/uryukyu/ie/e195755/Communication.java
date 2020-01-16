@@ -49,19 +49,6 @@ public class Communication {
             return false;
         }
     }
-
-    /**
-     *
-     * @param list String型にしたい変数を入れる。
-     * @return 引数をString型にした変数を返す。
-     */
-    private String ToString(ArrayList list){
-        String result ="";
-        for (Object object : list){
-            result += object;
-        }
-        return result;
-    }
 }
 
 

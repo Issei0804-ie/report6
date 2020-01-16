@@ -22,7 +22,7 @@ public class Server extends Communication{
         //指定されたポートにbindを行う。
         try {
             ssocket = new ServerSocket(port);
-            System.out.println("BindOk");
+            System.out.println("*****\nBindOK\n*****\n");
         } catch (java.io.IOException e) {
             e.printStackTrace();
         }
@@ -34,11 +34,11 @@ public class Server extends Communication{
      */
     public boolean listen() {
         try{
-            System.out.println("WaitClient");
+            System.out.println("*****\nWaitClient\n*****\n");
             socket = ssocket.accept();
             writer = new PrintStream(socket.getOutputStream());
             reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            System.out.println("ConnectClient");
+            System.out.println("*****\nConnectClient\n*****\n");
             return true;
         }catch (java.io.IOException e){
             e.printStackTrace();

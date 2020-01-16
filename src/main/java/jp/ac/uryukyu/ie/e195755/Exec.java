@@ -5,8 +5,9 @@ public class Exec {
         int port = 8080;
         Client client = new Client(port);
         String str = "puyopuyo";
+        System.out.println("Client send  " + str );
         client.sendMessage(str);
-        System.out.println(client.read());
+        System.out.println("Server send  " + client.read());
         client.close();
     }
 }
