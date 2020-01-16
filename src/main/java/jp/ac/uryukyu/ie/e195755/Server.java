@@ -14,6 +14,10 @@ import java.net.ServerSocket;
  */
 public class Server extends Communication{
     ServerSocket ssocket = null;
+    String httpHeader = null;
+    String httpMethod = null;
+    String httpRoute = null;
+
     /**
      * 指定されたポートにバインドする。
      * @param port
@@ -44,5 +48,20 @@ public class Server extends Communication{
             e.printStackTrace();
             return false;
         }
+    }
+
+    @Override
+    public String read(){
+        httpHeader = super.read();
+        //1行目を抜き出す　(.*\n)
+        //正規表現で一致させる
+        String[] headerLine = httpHeader.split(".*\\r\\n|[\\n\\r\\u2028\\u2029\\u0085]");
+        System.out.println("header");
+        String[] tmp = headerLine[0].split(" ");//空白で分割
+        httpMethod = tmp[0];
+        System.out.println("Method "+httpMethod);
+        httpRoute = tmp[1];
+        System.out.println("route " + httpRoute);
+        return "";
     }
 }

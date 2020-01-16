@@ -3,7 +3,6 @@ package jp.ac.uryukyu.ie.e195755;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
-import java.io.PrintWriter;
 import java.net.Socket;
 
 class Client extends Communication {

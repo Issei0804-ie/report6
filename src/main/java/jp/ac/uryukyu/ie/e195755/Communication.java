@@ -2,15 +2,11 @@ package jp.ac.uryukyu.ie.e195755;
 
 import java.io.*;
 import java.net.Socket;
-import java.nio.Buffer;
-import java.util.ArrayList;
 
 public class Communication {
     public Socket socket = null;
     public PrintStream writer = null;
     public BufferedReader reader = null;
-
-
 
     /**
      *クライアントから送信されたデータをString型にして戻り値にします。
