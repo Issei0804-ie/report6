@@ -1,15 +1,16 @@
 package jp.ac.uryukyu.ie.e195755;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args){
         int port = 8080;
-        Server server = new Server(8080);
-        /**
-         * 設定してからlisten
-         */
+
+        ArrayList<Route> routes = new ArrayList<Route>();
+        routes.add(new Route("/index.html", "index.html"));
+        routes.add(new Route("/hogehoge","hoge"));
+        HTTPServer server = new HTTPServer(8080, routes);
         server.listen();
-        System.out.println(server.read());
-        server.sendMessage("HTTP/1.1 200 OK\n\nhello");
         server.close();
     }
 }

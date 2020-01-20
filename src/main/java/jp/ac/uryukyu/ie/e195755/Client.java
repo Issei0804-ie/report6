@@ -5,6 +5,9 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
 
+/**
+ * このクラスは動作確認のために実装されたクラスであり、将来削除される予定です。
+ */
 class Client extends Communication {
     Client(int port){
         try {

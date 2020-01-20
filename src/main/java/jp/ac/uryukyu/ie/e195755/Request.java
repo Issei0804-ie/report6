@@ -1,10 +1,18 @@
 package jp.ac.uryukyu.ie.e195755;
 
+/**
+ * 送られてきたリクエストを処理します。
+ */
 class Request {
     String clientRoute = null;
     String method = null;
     Header header = new Header();
-    void parseHttpHeader(String header){
+
+    /**
+     * 送られてきたヘッダーからメソッドとルートをパースします。
+     * @param header クライアントから送られてきたヘッダー
+     */
+    void parseHTTPHeader(String header){
         this.header.header = header;
         //1行目を抜き出す　(.*\n)
         //正規表現で一致させる
@@ -17,6 +25,16 @@ class Request {
             e.printStackTrace();
         }
     }
+
+    /**
+     * クライアントが要求したルートを返します。
+     * @return
+     */
     String getClientRoute(){ return clientRoute; }
+
+    /**
+     * クライアントが要求したメソッドを返します。
+     * @return
+     */
     String getMethod(){ return method; }
 }

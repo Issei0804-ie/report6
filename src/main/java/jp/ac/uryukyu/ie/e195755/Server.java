@@ -15,7 +15,7 @@ public class Server extends Communication{
 
     /**
      * 指定されたポートにバインドする。
-     * @param port
+     * @param port バインドしたいポートを渡します。
      */
     public Server(int port) {
         //指定されたポートにbindを行う。
@@ -29,7 +29,7 @@ public class Server extends Communication{
 
     /**
      *クライアントの接続を待ちます。
-     * @return 正常終了したならばtrueを返します。
+     *
      */
     public void listen() {
         try{

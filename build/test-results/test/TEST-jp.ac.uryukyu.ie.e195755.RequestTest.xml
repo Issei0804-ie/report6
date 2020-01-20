@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="jp.ac.uryukyu.ie.e195755.RequestTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-01-20T11:32:33" hostname="IsseiMiyara.local" time="0.113">
+  <properties/>
+  <testcase name="parseHTTPHeader()" classname="jp.ac.uryukyu.ie.e195755.RequestTest" time="0.113"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
