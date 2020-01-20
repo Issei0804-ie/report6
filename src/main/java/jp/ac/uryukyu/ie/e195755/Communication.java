@@ -30,19 +30,17 @@ public class Communication {
         writer.println(str);
     }
 
-    public boolean close(){
+    public void close(){
         try {
             if (socket.isConnected()) {
                 writer.close();
                 reader.close();
                 socket.close();
-                return true;
             } else {
-                return false;
+                System.out.println("socket is not connected");
             }
         } catch(IOException e){
             e.printStackTrace();
-            return false;
         }
     }
 }

@@ -1,9 +1,6 @@
 package jp.ac.uryukyu.ie.e195755;
 
-class HTTPMethod {
-    
-    public boolean get(String path){
-    }
-    public boolean post(String path){
-    }
+interface HTTPMethod {
+    void get();
+    void post(); //将来実装
 }
