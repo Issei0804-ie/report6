@@ -17,4 +17,6 @@ class Request {
             e.printStackTrace();
         }
     }
+    String getClientRoute(){ return clientRoute; }
+    String getMethod(){ return method; }
 }
